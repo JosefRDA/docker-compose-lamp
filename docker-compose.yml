@@ -11,6 +11,7 @@ services:
       - "9882:443"
     links: 
       - mysql
+      - maildev
     volumes: 
       - ${DOCUMENT_ROOT-./www}:/var/www/html
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
@@ -47,3 +48,9 @@ services:
     image: redis:latest
     ports:
       - "9885:6379"
+  maildev:
+    container_name: 'png-maildev'
+    image: djfarrelly/maildev
+    ports:
+      - '9886:80'
+
