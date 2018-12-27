@@ -1,4 +1,5 @@
 # LAMP stack built with Docker Compose
+__Josef's custom DEV version__
 
 ![Landing Page](https://preview.ibb.co/gOTa0y/LAMP_STACK.png)
 
