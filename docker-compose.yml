@@ -7,8 +7,8 @@ services:
     container_name: 'png-webserver'
     restart: 'always'
     ports:
-      - "80:80"
-      - "443:443"
+      - "9881:80"
+      - "9882:443"
     links: 
       - mysql
     volumes: 
@@ -21,7 +21,7 @@ services:
     container_name: 'png-mysql'
     restart: 'always'
     ports:
-      - "3306:3306"
+      - "9884:3306"
     volumes: 
       - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
       - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
@@ -37,13 +37,13 @@ services:
       - mysql
     environment:
       PMA_HOST: mysql
-      PMA_PORT: 3306
+      PMA_PORT: 9884
     ports:
-      - '8080:80'
+      - '9883:80'
     volumes: 
       - /sessions
   redis:
     container_name: 'png-redis'
     image: redis:latest
     ports:
-      - "6379:6379"
+      - "9885:6379"
